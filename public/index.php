@@ -26,9 +26,22 @@
     // var_dump($router->getRoutes());
     // echo '</pre>';
 
+    // $router->match($url);
+    //     if (!empty($router->getParams())) {
+    //         echo "<br>Parametre de la route actuelle";
+    //         var_dump($router->getParams());
+    //     } else {
+    //         echo "<h1>Désolé! La page n'a pas été trouvée</h1>";
+    //     }
 
     preg_match_all("/[a-z\s]+/i", "I'm donald ahossi 0 5 986 754 ", $matches);
     echo '<pre>';
     var_dump($matches);
     echo '</pre>';
-?>
+    
+    $string = "{controller}/{action}";
+    $result= preg_replace("/(\w+)\/(\w+)/", "(<\\1>[a-z-]+)\/(<\\2>[a-z-]+)", $string);
+    echo '<pre>';
+    echo $result;
+    echo '</pre>';
+    ?>

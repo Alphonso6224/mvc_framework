@@ -33,13 +33,27 @@
       }
       
       public function match($url) {
-        foreach($this-routes as $route => $param) {
-            if ($url === $route) {
-                $this->params = $param;
-                return true ;
+        // foreach($this-routes as $route => $param) {
+        //     if ($url === $route) {
+        //         $this->params = $param;
+        //         return true ;
+        //     }
+        //     return false;
+        // }
+
+        $regex = "/^(?<controller>[a-z-]+)\/(?<action>[a-z-]+)$/";
+
+        if(preg_match($regex, $url, $matches)) {
+          $param = [];
+          foreach($matches as $key => $val) {
+            if (is_string($key)) {
+              $param[$key] = $val;
             }
-            return false;
+          }
+          $this->params = $param;
+          return true;
         }
+        return false;
       }
       /**
        * Renvoie tous les paramètre
@@ -48,6 +62,12 @@
        public function getParams() {
          return $this->param;
        }
- }
 
+
+      //  $string = "{controller}/{action}"
+       public function addPlus($string) {
+          return '$result= preg_replace("/(\w+)\/(\w+)/", (?<\\1>[a-z-]+)\/(?<\\2>[a-z-]+), $string)';
+       }
+       echo addPlus("{controller}/{action}");
+ }
 ?>
