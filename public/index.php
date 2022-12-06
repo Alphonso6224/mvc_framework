@@ -9,20 +9,26 @@
     // var_dump($root->handleRequest());
     // echo '</pre>';    
 
-    require '../Core/Router.php';
-    $router = new Router();
+    // require '../Core/Router.php';
+    // $router = new Router();
 
-    echo "Hello i'm Donald ! <br>";
+    // echo "Hello i'm Donald ! <br>";
 
     // Query string
-    echo "Chaine de requete ==> '" .$_SERVER['QUERY_STRING']. "'";
+    // echo "Chaine de requete ==> '" .$_SERVER['QUERY_STRING']. "'";
 
     // Ajout de quelques routes 
-    $router->add("", ["controller" => "Home", "action" => "index"]);
-    $router->add("posts", ["controller" => "Post", "action" => "show"]);
+    // $router->add("", ["controller" => "Home", "action" => "index"]);
+    // $router->add("posts", ["controller" => "Post", "action" => "show"]);
     // // $router->add("posts", ["controller" => "Post", "action" => "show"]);
 
-    echo '<pre>';    
-    var_dump($router->getRoutes());
+    // echo '<pre>';    
+    // var_dump($router->getRoutes());
+    // echo '</pre>';
+
+
+    preg_match_all("/[a-z\s]+/i", "I'm donald ahossi 0 5 986 754 ", $matches);
+    echo '<pre>';
+    var_dump($matches);
     echo '</pre>';
 ?>
