@@ -24,12 +24,30 @@
     }
     
      /**
+      * ab23
       * Renvoie toutes les routes
       *@ return 
       */
       public function getRoutes() {
         return $this->routes;
       }
+      
+      public function match($url) {
+        foreach($this-routes as $route => $param) {
+            if ($url === $route) {
+                $this->params = $param;
+                return true ;
+            }
+            return false;
+        }
+      }
+      /**
+       * Renvoie tous les paramètre
+       *@ return 
+       */
+       public function getParams() {
+         return $this->param;
+       }
  }
 
 ?>
