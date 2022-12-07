@@ -34,14 +34,38 @@
     //         echo "<h1>Désolé! La page n'a pas été trouvée</h1>";
     //     }
 
-    preg_match_all("/[a-z\s]+/i", "I'm donald ahossi 0 5 986 754 ", $matches);
-    echo '<pre>';
-    var_dump($matches);
-    echo '</pre>';
+    // preg_match_all("/[a-z\s]+/i", "I'm donald ahossi 0 5 986 754 ", $matches);
+    // echo '<pre>';
+    // var_dump($matches);
+    // echo '</pre>';
     
-    $string = "{controller}/{action}";
-    $result= preg_replace("/(\w+)\/(\w+)/", "(<\\1>[a-z-]+)\/(<\\2>[a-z-]+)", $string);
-    echo '<pre>';
-    echo $result;
-    echo '</pre>';
+    // $string = "{controller}/{action}";
+    // $result= preg_replace("/(\w+)\/(\w+)/", "(<\\1>[a-z-]+)\/(<\\2>[a-z-]+)", $string);
+    // echo '<pre>';
+    // echo $result;
+    // echo '</pre>';
+
+
+    function pascal($n) {
+
+    }
+
+    
+    function pascalCase($str) {
+        // return ucwords("$str");
+        $arr = explode("-", $str);
+        // print_r( $arr);
+       foreach ($arr as $value) {
+            $val = ucwords($value);
+            $value = str_ireplace($value, $val, $value);
+        }
+        return $arr;
+
+    }
+
+
+    $string = 'post-action';
+    echo "<pre>";
+    var_dump(pascalCase($string));
+    echo "</pre>";
     ?>
